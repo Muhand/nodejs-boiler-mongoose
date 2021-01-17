@@ -4,3 +4,4 @@ A nodejs boiler plate for mongoose. It doesn't include any architecture and this
 ## TODO:
 1. Add controller
 2. Add cli boiler plate (maybe to a different branch)
+3. Add `tests`
