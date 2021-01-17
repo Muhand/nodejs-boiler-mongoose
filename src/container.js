@@ -18,8 +18,9 @@ const loadAppContainer = async ({dbConnection, expressApp}) => {
   const container = createContainer(containerOptions)
 
   container.register({
+    container: (c) => c,
     config: asValue(config),
-    mainController: asClass(mainController)
+    mainController: asClass(mainController),
   })
 
   // Inject db connection
@@ -39,4 +40,4 @@ const loadAppContainer = async ({dbConnection, expressApp}) => {
   return container
 }
 
-module.exports = loadAppContainer
+module.exports = loadAppContainer()
