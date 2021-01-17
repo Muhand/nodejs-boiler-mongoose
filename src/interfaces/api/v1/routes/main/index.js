@@ -1,13 +1,13 @@
 const { Router } = require('express')
+const { Container } = require('../../../../../container')
 
-// Import controller here
+const mainController = Container.resolve('mainController')
+
 
 function main() {
   let api = Router()
 
-  api.get('/', (req, res) => {
-    res.status(200).json({message:"OK"})
-  })
+  api.get('/', mainController.helloWorld)
 
   return api
 }
