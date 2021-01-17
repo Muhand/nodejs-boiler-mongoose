@@ -6,7 +6,7 @@
 const bodyParser = require('body-parser')
 
 async function init({app, appConfig}, middlewares = []) {
-  const routes = require(`../interfaces/api/${appConfig.apiVersion}/routes`)
+  const routes = require(`./interfaces/api/${appConfig.apiVersion}/routes`)
 
   if (!app || !appConfig) {
     throw new Error("Missing parameters while initialzing express.")
