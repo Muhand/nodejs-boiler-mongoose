@@ -3,13 +3,12 @@
 const mongooseLoader = require('./mongooseLoader')
 const morganLoader = require('./morganLoader')
 const helmetLoader = require('./helmetLoader')
-const expressLoader = require('./expressLoader')
 
-async function init({expressApp, config}) {
+async function init({config}) {
   try {
     // MARK:- Initialize database
     console.log(`Initializing Mongodb...`)
-    const _dbConnection = await mongooseLoader({dbConfig: config.db})
+    const dbConnection = await mongooseLoader({dbConfig: config.db})
     console.log(`MongoDB initialized successfully`)
 
     // TODO: Add Redis initializer here
@@ -33,11 +32,18 @@ async function init({expressApp, config}) {
       helmet
     ]
 
-    console.log(`Initializing Express...`)
-    const _app = await expressLoader({app: expressApp, appConfig: config.app}, expressMiddlewares)
-    console.log(`Express Initialized successfully`)
+    // console.log(`Injecting dependencies...`)
+    // const _container = await dependencyInjector({dbConnection: dbConnection, expressApp: app})
+    // console.log(`Dependencies injected successfully`)
 
-    Promise.resolve()
+
+    const modules = {
+      dbConnection: dbConnection,
+      // expressApp: app,
+      expressMiddlewares: expressMiddlewares
+    }
+
+    return Promise.resolve(modules)
   } catch(e) {
     // Handle error here, maybe log it?
     console.log(e);
