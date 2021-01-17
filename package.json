@@ -1,0 +1,66 @@
+{
+  "name": "cast-tv-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhand/cast-tv-backend.git"
+  },
+  "author": "Muhand Jumah",
+  "license": "ISC",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/Muhand/cast-tv-backend/issues"
+  },
+  "homepage": "https://github.com/Muhand/cast-tv-backend#readme",
+  "engines": {
+    "node": "12.19.0",
+    "npm": "6.14.8"
+  },
+  "scripts": {
+    "dev": "nodemon -w src",
+    "heroku-start": "node src",
+    "lint": "eslint src",
+    "test": "mocha './tests/**/*.spec.js'"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "awilix": "^4.2.6",
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "mongoose": "^5.10.8",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^7.10.0",
+    "faker": "^5.1.0",
+    "mocha": "^8.2.0",
+    "redis-mock": "^0.52.0",
+    "sinon": "^9.2.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 9
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": [
+        "warn",
+        {
+          "varsIgnorePattern": "^_",
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "heroku-run-build-script": true
+}
